@@ -1,0 +1,17 @@
+- name: Install nginx config for captive portal
+  template: src=captive-portal.conf dest=/etc/nginx/conf.d/
+  when: captive_portal_enabled and nginx_install
+
+- name: Remove captive portal
+  file: path=/etc/nginx/conf.d/captive-portal.conf
+  when: not captive_portal_enbled and nginx_install
+
+- name: Stock rpi does not have conntrack
+  package: name=conntrack state=present
+
+- name: Transfer files 
+  template: src={{ item.src }} dest={{ item.dest }}
+  with_items:
+    - { src: rmtrack.sh, dest: /usr/sbin/ }
+    - { src: spash.php, dest: "{{ doc_root }}/services/" }
+    - { src: process.php, dest: "{{ doc_root }}/services/" }
