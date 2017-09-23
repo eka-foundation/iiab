@@ -1,5 +1,6 @@
 ---
 # The values here are default local variables.
+captive_portal_enabled: True
 gui_wan_iface: "unset"
 gui_static_wan_ip: "unset"
 gui_desired_network_role: Gateway
