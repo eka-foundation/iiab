@@ -1,6 +1,7 @@
 ---
 # The values here are default local variables.
 captive_portal_enabled: True
+captive_portal_install: True
 gui_wan_iface: "unset"
 gui_static_wan_ip: "unset"
 gui_desired_network_role: Gateway
@@ -32,7 +33,6 @@ dnsmasq_install: True
 dnsmasq_enabled: True
 nginx_install: True
 nginx_enabled: True
-captive_portal_enabled: False
 dansguardian_install: False
 dansguardian_enabled: False
 squid_install: False
