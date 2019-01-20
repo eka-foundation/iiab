@@ -17,7 +17,8 @@ iiab_dir: "{{ iiab_base }}/iiab"
 pip_packages_dir: "{{ iiab_base }}/pip-packages"
 yum_packages_dir: "{{ iiab_base }}/yum-packages"
 downloads_dir: "{{ iiab_base }}/downloads"
-iiab_download_url: http://download.iiab.io/packages
+iiab_url: http://download.iiab.io
+iiab_download_url: "{{ iiab_url }}/packages"
 
 content_base: "/library"
 doc_base: "{{ content_base }}/www"

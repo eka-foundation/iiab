@@ -1,0 +1,17 @@
+- name: Copy video-player components
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+  with_items:
+    - { src: video-player.html, dest: "{{ doc_root }}/common/html/", mode: '0644' }
+    - { src: internetinabox1.jpg, dest: "{{ doc_root }}/common/images/", mode: '0644' }
+    - { src: video.min.js, dest: "{{ doc_root }}/common/js/", mode: '0644' }
+    - { src: video-js.min.css, dest: "{{ doc_root }}/common/css/", mode: '0644' }
+
+- name: Get the videos
+  get_url:
+     url: "{{ item }}"
+     dest: "{{ doc_root }}/common/assets"
+  with_items:
+    - "{{ iiab_url }}/content/menus.m4v"
